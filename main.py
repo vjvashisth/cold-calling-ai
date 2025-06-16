@@ -5,24 +5,24 @@ from linkedin_messenger import send_linkedin_message
 from crm_tracker import init_crm, update_crm
 import os
 
-# 🔁 Update with your live ngrok TwiML URL
-TWIML_URL = "https://a974-2409-40e5-12c-fdf7-b8b0-8d33-bf9f-78b9.ngrok-free.app/voice"  # Replace this
+# Update with your live ngrok TwiML URL
+TWIML_URL = "https://2757-2409-40e5-12c-fdf7-b8b0-8d33-bf9f-78b9.ngrok-free.app/voice"  # Replace this
 
-def load_contacts(file_path='contacts.csv'):
+def load_contacts(file_path='data/contacts.csv'):
     try:
         df = pd.read_csv(file_path, dtype={"phone": str})
         df.columns = [col.strip().lower() for col in df.columns]
         df.dropna(subset=["name", "phone"], inplace=True)
 
         # Load CRM and exclude "Closed" or 3+ attempts
-        if os.path.exists("crm_log.csv"):
-            crm = pd.read_csv("crm_log.csv")
+        if os.path.exists("data/crm_log.csv"):
+            crm = pd.read_csv("data/crm_log.csv")
             skip_names = crm[(crm["status"].isin(["Closed", "Cold"])) | (crm["attempts"] >= 3)]["name"]
             df = df[~df["name"].isin(skip_names)]
 
         return df
     except Exception as e:
-        print(f"❌ Error loading contacts: {e}")
+        print(f"Error loading contacts: {e}")
         return pd.DataFrame()
 
 def main():
@@ -33,7 +33,7 @@ def main():
         print("No contacts to process.")
         return
 
-    print("✅ Contacts Loaded:")
+    print("Contacts Loaded:")
     print(contacts)
 
     for _, row in contacts.iterrows():
@@ -42,7 +42,7 @@ def main():
         linkedin_url = row.get("linkedin_url", "")
         sector = row.get("sector", "your industry")
 
-        print(f"\n📞 Calling {name} at {phone}...")
+        print(f"\n Calling {name} at {phone}...")
         sid = initiate_call(phone, TWIML_URL)
 
         if sid:
