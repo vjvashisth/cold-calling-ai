@@ -1,0 +1,41 @@
+timestamp,name,phone,status,notes
+2025-06-16T12:47:12.366067,Vijayendra,918287463433.0,Pending,Awaiting first call
+2025-06-16T12:47:12.366207,Ranajay Sarma,917992491520.0,Pending,Awaiting first call
+2025-06-16T12:47:12.366274,nan,nan,Pending,Awaiting first call
+2025-06-16T12:58:05.819708,Vijayendra,918287463433.0,Failed,Error placing call
+2025-06-16T12:58:06.679920,Ranajay Sarma,917992491520.0,Failed,Error placing call
+2025-06-16T12:58:07.458796,nan,nan,Failed,Error placing call
+2025-06-16T13:11:50.698272,Vijayendra,+918287463433,Call Initiated,SID: CAeea595c439ce4a0f81ca10e0b2fbe1fb
+2025-06-16T13:11:51.528455,Ranajay Sarma,+917992491520,Call Initiated,SID: CA7f15391d33332b7da48e62758454d4aa
+2025-06-16T13:11:52.291757,nan,nan,Failed,Error placing call
+2025-06-16T13:12:51.484155,Vijayendra,+918287463433,Call Initiated,SID: CA19542aed5087dc31dd71d285ef541843
+2025-06-16T13:12:52.380584,Ranajay Sarma,+917992491520,Call Initiated,SID: CAba591ed2f2e278686337cc59c854092c
+2025-06-16T13:15:15.865012,Vijayendra,+918287463433,Call Initiated,SID: CAbdb08e426d1ed7bbff4db4b03a76e1e3
+2025-06-16T13:15:16.662392,Ranajay Sarma,+917992491520,Call Initiated,SID: CA3c9325b156e11dd3992d56f52daf9137
+2025-06-16T13:17:31.196355,Vijayendra,+918287463433,Call Initiated,SID: CA2ba1f18d81072d9b7482ec19017a752d
+2025-06-16T13:17:32.026798,Ranajay Sarma,+917992491520,Call Initiated,SID: CA13d86cf5381933ca868aecdb4bdc77ec
+2025-06-16T13:26:37.619049,Vijayendra,9.18287E+11,Call Initiated,SID: CAc0a1bfdd11a1c7c960056cd64a380715
+2025-06-16T13:27:26.303892,Vijayendra,9.18287E+11,Call Initiated,SID: CA017edd5e4a65cfd66f6d285c54f4db6f
+2025-06-16T13:28:01.078338,Vijayendra,+918287463433,Call Initiated,SID: CAcb3d1c40c9a9cb9c22289bc5d8458ea8
+2025-06-16T13:31:07.033106,Vijayendra,+918287463433,Call Initiated,SID: CAc89f085f5d84b8e01192c171aa919945
+2025-06-16T13:43:33.087153,Vijayendra,+918287463433,Call Initiated,SID: CAe64bf9c6a0aacc2015c51fac4bdc4295
+2025-06-16T13:43:58.890630,Vijayendra,+918287463433,Call Initiated,SID: CAef643bc6d01c2dc49b69a55ad413b800
+2025-06-16T13:46:21.193804,Vijayendra,+918287463433,Call Initiated,SID: CAa5a5edab0834c0a40ec762047aa09113
+2025-06-16T16:00:57.539645,Vijayendra,+918287463433,Follow-up,SID: CA664143844bd758448ec928913095ed08 — interested in follow-up | LinkedIn sent
+2025-06-16T16:04:10.172833,Vijayendra,+918287463433,Follow-up,SID: CA8c453f1f5858f681f5534e43f2dd7097 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:11:54.952428,Vijayendra,+918287463433,Follow-up,SID: CAa9254c661f77723d4687447cac7751f2 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:21:50.624370,Vijayendra,+918287463433,Follow-up,SID: CA7349434f8e715e02e20e743ea2892ee5 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:28:59.347171,Vijayendra,+918287463433,Follow-up,SID: CAe28e6a7edb8cd134ffde3e4f9bfecb06 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:35:59.897812,Vijayendra,+918287463433,Follow-up,SID: CA2fffb84c1fc4368576cc646b64322fa4 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:42:47.106135,Vijayendra,+918287463433,Follow-up,SID: CA1e94d514e73584fc9e0ba5a2d7c0eeaa — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:54:11.261731,Vijayendra,+918287463433,Follow-up,SID: CA374f19e4562e93f7e04245ae84936b07 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T16:59:06.399061,Vijayendra,+918287463433,Follow-up,SID: CA3daafde28a164952ea60ecb76928d442 — interested in follow-up | LinkedIn failed: Connect button not found or already connected.
+2025-06-16T17:03:31.628870,Vijayendra,+918287463433,Follow-up,SID: CAc0ff7d1107523c64124c4e7ab5878403 — interested in follow-up | LinkedIn sent
+2025-06-16T17:08:44.552469,Vijayendra,+918287463433,Follow-up,SID: CA7e73e261fe694bf068786c9441413e9a — interested in follow-up | LinkedIn sent
+2025-06-16T17:12:56.396181,Vijayendra,+918287463433,Follow-up,SID: CA437f0933fd67c7e671c424239a5b6ed2 — interested in follow-up | LinkedIn sent
+2025-06-16T17:16:29.574141,Vijayendra,+918287463433,Follow-up,SID: CA60d7cdf97d4ebb60234ec8e3e3e2186b — interested in follow-up | LinkedIn sent
+2025-06-16T17:38:04.153307,Vijayendra,+918287463433,Follow-up,SID: CA40e660b57a3e8ef9fddd2660d57275b2 — interested in follow-up | LinkedIn sent
+2025-06-16T17:39:03.762133,Vijayendra,+918287463433,Follow-up,SID: CA5e7fd831969b530e40d65772725a227d — interested in follow-up | LinkedIn sent
+2025-06-16T17:44:01.077252,Vijayendra,+918287463433,Follow-up,SID: CAca0f0fa0fa705460f6b86e1f86bd31e5 — interested in follow-up | LinkedIn sent
+2025-06-16T17:53:11.573466,Vijayendra,+918287463433,Follow-up,SID: CA4a4a3ab665c0a53da09b04fd8a408063 — interested in follow-up | LinkedIn sent
+2025-06-16T21:20:14.523065,Vijayendra,+918287463433,Follow-up,SID: CA2ad0df221e3dc9a680a6093f970350da — interested in follow-up | LinkedIn sent

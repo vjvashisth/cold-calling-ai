@@ -1,0 +1,2 @@
+from transcriber import transcribe_audio
+transcribe_audio("RE5bff619771faf8b24e28807252f9d6c5.wav")
