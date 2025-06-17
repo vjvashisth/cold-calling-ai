@@ -6,7 +6,7 @@ from crm_tracker import init_crm, update_crm
 import os
 
 # Update with your live ngrok TwiML URL
-TWIML_URL = "https://2757-2409-40e5-12c-fdf7-b8b0-8d33-bf9f-78b9.ngrok-free.app/voice"  # Replace this
+TWIML_URL = "https://19ad-2409-40e4-10b1-c7d4-75be-3834-bfae-1150.ngrok-free.app/voice"  # Replace this
 
 def load_contacts(file_path='data/contacts.csv'):
     try:

@@ -1,24 +1,24 @@
 import os
+import uuid
 import requests
+from pydub import AudioSegment
 from dotenv import load_dotenv
 
 load_dotenv()
 
 ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
-VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM")  # default Adam
+VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "EXAVITQu4vr4xnSDxMaL")  # default ElevenLabs voice
 
-HEADERS = {
-    "xi-api-key": ELEVENLABS_API_KEY,
-    "Content-Type": "application/json"
-}
-
-
-def text_to_speech(text, output_file="data/reply.wav"):
+def text_to_speech(text):
+    print("🔁 Generating speech with ElevenLabs...")
     try:
-        print("🔁 Generating speech with ElevenLabs...")
-
+        url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
+        headers = {
+            "xi-api-key": ELEVENLABS_API_KEY,
+            "Content-Type": "application/json"
+        }
         payload = {
-            "text": text,
+            "text": text[:400],
             "model_id": "eleven_monolingual_v1",
             "voice_settings": {
                 "stability": 0.5,
@@ -26,27 +26,34 @@ def text_to_speech(text, output_file="data/reply.wav"):
             }
         }
 
-        tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
+        response = requests.post(url, headers=headers, json=payload, timeout=8)
+        response.raise_for_status()
 
-        response = requests.post(
-            tts_url,
-            headers={"xi-api-key": ELEVENLABS_API_KEY},
-            json=payload,
-            stream=True
-        )
+        filename = f"reply_{uuid.uuid4().hex[:8]}.wav"
+        output_path = os.path.join("audio_samples", filename)
 
-        if response.status_code != 200:
-            print(f"ElevenLabs error: {response.status_code}, {response.json()}")
-            return None
+        with open(output_path, "wb") as f:
+            f.write(response.content)
 
-        with open(output_file, "wb") as f:
-            for chunk in response.iter_content(chunk_size=1024 * 1024):
-                if chunk:
-                    f.write(chunk)
-
-        print(f"Synthesized audio to {output_file}")
-        return output_file
+        print(f"✅ Synthesized audio to {output_path}")
+        return normalize_audio_for_twilio(output_path)
 
     except Exception as e:
-        print(f"ElevenLabs exception: {e}")
-        return None
+        print("❌ ElevenLabs error:", e)
+        raise
+
+def normalize_audio_for_twilio(filepath):
+    try:
+        print("🎧 Normalizing audio for Twilio (mono, 16kHz, 16-bit PCM)...")
+        audio = AudioSegment.from_file(filepath)
+        audio = audio.set_channels(1).set_frame_rate(16000).set_sample_width(2)
+
+        normalized_path = filepath.replace(".wav", "_twilio.wav")
+        audio.export(normalized_path, format="wav")
+
+        print(f"✅ Normalized audio saved to {normalized_path}")
+        return normalized_path
+
+    except Exception as e:
+        print("❌ Audio normalization failed:", e)
+        raise
