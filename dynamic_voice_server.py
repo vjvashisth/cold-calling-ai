@@ -50,35 +50,31 @@ def handle_recording():
         if not recording_url:
             raise ValueError("RecordingUrl not found")
 
-        print(f"🎤 Step 1: Received recording at {recording_url}")
+        print("\n📥 [STEP 1] Received User Response from Twilio")
+        print(f"🔗 Recording URL: {recording_url}")
 
-        # Step 2: Transcribe (fallback to default text if needed)
-        try:
-            transcription = transcribe_audio(recording_url)
-            print(f"📝 Step 2: Transcription: {transcription}")
-        except Exception as e:
-            print("⚠️ Transcription failed:", e)
-            transcription = "Sorry, I couldn't hear that clearly."
+        # Step 2: Transcribe
+        print("\n📝 [STEP 2] Transcribing via Whisper API...")
+        transcription = transcribe_audio(recording_url)
+        print(f"📝 Transcription Result: {transcription}")
 
-        # Step 3: GPT response
-        try:
-            reply_text = get_gpt_reply(transcription)
-            print(f"🤖 Step 3: GPT: {reply_text}")
-        except Exception as e:
-            print("⚠️ GPT failed:", e)
-            reply_text = "Thank you for your message. We'll be in touch shortly."
+        # Step 3: Get GPT Response
+        print("\n🤖 [STEP 3] Generating GPT Reply...")
+        reply_text = get_gpt_reply(transcription)
+        print(f"🧠 GPT Output: {reply_text}")
 
-        # Step 4: Text-to-speech
-        try:
-            reply_audio_path = text_to_speech(reply_text)
-            reply_audio_url = f"{PUBLIC_AUDIO_BASE_URL}/data/{os.path.basename(reply_audio_path)}"
-            response.play(reply_audio_url)
-        except Exception as e:
-            print("⚠️ ElevenLabs failed, using fallback.wav:", e)
-            response.play(fallback_audio)
+        # Step 4: Generate Voice
+        print("\n🎙️ [STEP 4] Synthesizing Voice with ElevenLabs...")
+        reply_audio_path = text_to_speech(reply_text)
+        print(f"🔊 Audio File: {reply_audio_path}")
+
+        # Step 5: Playback
+        print("\n📤 [STEP 5] Sending audio reply back to Twilio caller...")
+        response.play(f"{PUBLIC_AUDIO_BASE_URL}/data/{os.path.basename(reply_audio_path)}")
 
     except Exception as e:
-        print("❌ Final fallback triggered:", e)
+        print("❌ Error during call flow:", e)
+        traceback.print_exc()
         response.play(fallback_audio)
 
     response.say("Goodbye.")
